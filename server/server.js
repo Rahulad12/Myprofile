@@ -6,8 +6,23 @@ const path = require("path");
 require("dotenv").config();
 const app = express();
 
-app.use(cors({ origin: "https://adhikarirahul.com.np" }));
-// app.use(cors());
+const allowedOrigins = [
+  "https://adhikarirahul.com.np",
+  "http://localhost:5173", // Allow local development
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 
