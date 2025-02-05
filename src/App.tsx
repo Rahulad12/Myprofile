@@ -74,7 +74,7 @@ function App() {
     // Create the mailto link
     const subject = "Portfolio Contact Form Submission";
     const body = `Email: ${email}\nMessage: ${message}`;
-    const mailtoLink = `mailto:adrahul2014@gmail.com?subject=${encodeURIComponent(
+    const mailtoLink = `mailto:st.rahul07@gmail.com?subject=${encodeURIComponent(
       subject
     )}&body=${encodeURIComponent(body)}`;
 
@@ -434,7 +434,7 @@ function App() {
               <Linkedin size={20} />
             </a>
             <a
-              href="mailto:rahuladhikari2034@gmail.com"
+              href="mailto:st.rahul07@gmail.com"
               className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors"
               aria-label="Email"
             >
