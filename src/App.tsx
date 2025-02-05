@@ -72,33 +72,53 @@ function App() {
   const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
-    const email = (form.elements.namedItem("email") as HTMLInputElement).value;
-    const message = (form.elements.namedItem("message") as HTMLTextAreaElement)
-      .value;
+    const email = (
+      form.elements.namedItem("email") as HTMLInputElement
+    ).value.trim();
+    const message = (
+      form.elements.namedItem("message") as HTMLTextAreaElement
+    ).value.trim();
 
+    // Validate email format using regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email || !message) {
       alert("Please enter both email and message.");
       return;
     }
+    if (!emailRegex.test(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    // const CALLBACK_URL =
+    //   import.meta.env.NODE_ENV === "development"
+    //     ? import.meta.env.VITE_CALLBACK_URL_DEV
+    //     : import.meta.env.VITE_CALLBACK_URL;
+    const CALLBACK_URL = import.meta.env.VITE_CALLBACK_URL;
+
+    console.log("CALLBACK_URL", CALLBACK_URL);
+    if (!CALLBACK_URL) {
+      alert("Server URL is not configured.");
+      return;
+    }
 
     try {
-      const response = await fetch("http://localhost:5000/send-email", {
+      const response = await fetch(`${CALLBACK_URL}/send-email`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, message }),
       });
 
-      const data = await response.json();
-
-      if (response.ok) {
-        alert("Email sent successfully!");
-        form.reset();
-      } else {
-        alert(`Error: ${data.error}`);
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error || "Failed to send email.");
       }
+
+      alert("Email sent successfully!");
+      form.reset();
     } catch (error) {
       console.error("Error sending email:", error);
-      alert("Failed to send email.");
+      alert("Failed to send email. Please try again later.");
     }
   };
 
