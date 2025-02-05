@@ -19,6 +19,13 @@ import {
 
 // Define types for the data structures
 type SkillCategory = "frontend" | "backend" | "tools";
+type Experience = {
+  role: string;
+  company: string;
+  duration: string;
+  description: string;
+  skills: string[];
+};
 
 type SkillData = {
   title: string;
@@ -38,8 +45,8 @@ type Project = {
 // Main App Component
 function App() {
   const [openSkills, setOpenSkills] = useState<Record<SkillCategory, boolean>>({
-    frontend: true,
-    backend: false,
+    backend: true,
+    frontend: false,
     tools: false,
   });
 
@@ -92,12 +99,20 @@ function App() {
       );
     }
   };
-  const skillsData: Record<SkillCategory, SkillData> = {
-    frontend: {
-      title: "Frontend Development",
-      description: "Building responsive and interactive user interfaces",
-      skills: ["React", "TypeScript", "Tailwind CSS", "Redux"],
+  // Add this type definition for experience data
+
+  // Add this array of experience data
+  const experiences: Experience[] = [
+    {
+      role: "Backend Developer Intern",
+      company: "Wisdom Technologies",
+      duration: "Oct 2024 - Present",
+      description:
+        "Developed and maintained RESTful APIs for a hotel accommodation system. Integrated third-party APIs like Twilio and Google OAuth. Collaborated with the frontend team to ensure seamless integration.",
+      skills: ["Node.js", "Express.js", "MongoDB", "REST APIs", "Twilio"],
     },
+  ];
+  const skillsData: Record<SkillCategory, SkillData> = {
     backend: {
       title: "Backend Development",
       description: "Creating robust server-side applications",
@@ -109,10 +124,15 @@ function App() {
         "Third Parties APIs",
       ],
     },
+    frontend: {
+      title: "Frontend Development",
+      description: "Building responsive and interactive user interfaces",
+      skills: ["React", "TypeScript", "Tailwind CSS", "Redux"],
+    },
     tools: {
       title: "Tools & Technologies",
       description: "Tools and technologies I use daily",
-      skills: ["Git", "Docker", "VS Code", "Figma"],
+      skills: ["Git", "Github", "Postman", "VS Code", "Linux"],
     },
   };
 
@@ -192,7 +212,6 @@ function App() {
           <ChevronDown size={32} />
         </div>
       </section>
-
       {/* About Me Section */}
       <section className="py-20 px-4 bg-white" id="about">
         <div className="max-w-4xl mx-auto">
@@ -200,7 +219,7 @@ function App() {
             <h2 className="text-4xl font-bold mb-4">About Me</h2>
             <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-teal-600 mx-auto"></div>
           </div>
-          <div className="grid gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {
                 icon: <User size={24} className="shrink-0" />,
@@ -243,8 +262,45 @@ function App() {
           </div>
         </div>
       </section>
-
-      {/* Skills Section */}
+      {/* experience section */}
+      <section className="py-20 px-4 bg-gray-50" id="experience">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4">Experience</h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-teal-600 mx-auto"></div>
+          </div>
+          <div className="space-y-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+            {experiences.map((exp, index) => (
+              <div
+                key={index}
+                className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-lg transition-shadow"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-800">
+                      {exp.role}
+                    </h3>
+                    <p className="text-gray-600 text-sm">{exp.company}</p>
+                  </div>
+                  <span className="text-sm text-gray-500">{exp.duration}</span>
+                </div>
+                <p className="text-gray-600 mb-4">{exp.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {exp.skills.map((skill, skillIndex) => (
+                    <span
+                      key={skillIndex}
+                      className="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-medium"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      ;{/* Skills Section */}
       <section className="py-20 px-4 bg-gray-50" id="skills">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold mb-4 text-center">
@@ -298,7 +354,6 @@ function App() {
           </div>
         </div>
       </section>
-
       {/* Projects Section */}
       <section className="py-20 px-4 bg-white" id="projects">
         <div className="max-w-6xl mx-auto">
@@ -362,7 +417,6 @@ function App() {
           </div>
         </div>
       </section>
-
       {/* Contact Section */}
       <section className="py-20 px-4 bg-gray-50" id="contact">
         <div className="max-w-4xl mx-auto">
@@ -410,7 +464,6 @@ function App() {
           </form>
         </div>
       </section>
-
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
         <div className="max-w-4xl mx-auto px-4 text-center">
