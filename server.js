@@ -6,7 +6,8 @@ import cors from "cors";
 dotenv.config();
 const app = express();
 
-app.use(cors());
+app.use(cors({ origin: "*" }));
+
 app.use(express.json());
 
 const transporter = nodemailer.createTransport({
@@ -16,7 +17,6 @@ const transporter = nodemailer.createTransport({
     pass: process.env.EMAIL_PASS, // Your email password or app password
   },
 });
-
 app.post("/send-email", async (req, res) => {
   const { email, message } = req.body;
 
@@ -39,4 +39,22 @@ app.post("/send-email", async (req, res) => {
   }
 });
 
-app.listen(5000, () => console.log("Server running on port 5000"));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../frontend", "dist")));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "./", "dist", "index.html"));
+  });
+} else {
+  app.get("/", (req, res) => {
+    res.send("API is running....");
+  });
+}
+
+// Error handling for any unexpected errors
+app.use((err, req, res, next) => {
+  console.log(err.stack);
+  res.status(500).send("Something went wrong!");
+  next();
+});
+app.listen(process.env.PORT, () => console.log("Server running on port 5000"));
