@@ -6,7 +6,7 @@ const path = require("path");
 require("dotenv").config();
 const app = express();
 
-app.use(cors({ origin: "adhikarirahul.com.np" }));
+app.use(cors({ origin: "https://adhikarirahul.com.np" }));
 // app.use(cors());
 
 app.use(express.json());

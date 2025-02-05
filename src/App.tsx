@@ -103,22 +103,26 @@ function App() {
     e.preventDefault();
     const form = e.currentTarget;
     const email = (form.elements.namedItem("email") as HTMLInputElement).value;
-    const message = (form.elements.namedItem("message") as HTMLTextAreaElement).value;
-  
+    const message = (form.elements.namedItem("message") as HTMLTextAreaElement)
+      .value;
+
     if (!email || !message) {
       alert("Please enter both email and message.");
       return;
     }
-  
+
     try {
-      const response = await fetch("http://localhost:5000/send-email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, message }),
-      });
-  
+      const response = await fetch(
+        `${import.meta.env.VITE_CALLBACK_URL}/send-email`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, message }),
+        }
+      );
+
       const data = await response.json();
-  
+
       if (response.ok) {
         alert("Email sent successfully!");
         form.reset();
@@ -130,7 +134,7 @@ function App() {
       alert("Failed to send email.");
     }
   };
-  
+
   // Add this type definition for experience data
 
   // Add this array of experience data
