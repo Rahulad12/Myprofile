@@ -12,7 +12,7 @@ const allowedOrigins = [
   "http://localhost:5173",
 ];
 
-// ✅ Allow preflight requests for all routes
+// Allow preflight requests for all routes
 app.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
@@ -31,7 +31,7 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 
-// ✅ CORS Middleware (after preflight handler)
+// CORS Middleware (after preflight handler)
 app.use(
   cors({
     origin: function (origin, callback) {
@@ -45,12 +45,12 @@ app.use(
   })
 );
 
-// ✅ Check if .env variables are available
+// Check if .env variables are available
 if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
   console.error("Missing EMAIL_USER or EMAIL_PASS in environment variables");
 }
 
-// ✅ Nodemailer Configuration
+// Nodemailer Configuration
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
@@ -83,7 +83,7 @@ app.post("/send-email", async (req, res) => {
   }
 });
 
-// ✅ Root Route
+// Root Route
 app.get("/", (req, res) => {
   res.json({
     success: true,
@@ -91,12 +91,12 @@ app.get("/", (req, res) => {
   });
 });
 
-// ✅ Error Handling Middleware
+// Error Handling Middleware
 app.use((err, req, res, next) => {
   logger.error(err.stack);
   res.status(500).send("Something went wrong!");
 });
 
-// ✅ Start Server
+// Start Server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
