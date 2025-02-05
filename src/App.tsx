@@ -50,26 +50,7 @@ function App() {
     }));
   };
 
-  // const handleContactSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   const form = e.currentTarget;
-  //   const email = (form.elements.namedItem("email") as HTMLInputElement).value;
-  //   const message = (form.elements.namedItem("message") as HTMLTextAreaElement)
-  //     .value;
-
-  //   if (!email || !message) {
-  //     alert("Please enter both email and message.");
-  //     return;
-  //   }
-
-  //   const mailtoLink = `mailto:adrahul2014@gmail.com?subject=Portfolio Contact&body=${encodeURIComponent(
-  //     `Email: ${email}\nMessage: ${message}`
-  //   )}`;
-
-  //   // Open in a new tab to bypass some browser restrictions
-  //   window.open(mailtoLink, "_blank");
-  // };
-  const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleContactSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const email = (
@@ -90,38 +71,27 @@ function App() {
       return;
     }
 
-    // const CALLBACK_URL =
-    //   import.meta.env.NODE_ENV === "development"
-    //     ? import.meta.env.VITE_CALLBACK_URL_DEV
-    //     : import.meta.env.VITE_CALLBACK_URL;
-    const CALLBACK_URL = import.meta.env.VITE_CALLBACK_URL;
+    // Create the mailto link
+    const subject = "Portfolio Contact Form Submission";
+    const body = `Email: ${email}\nMessage: ${message}`;
+    const mailtoLink = `mailto:adrahul2014@gmail.com?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
 
-    console.log("CALLBACK_URL", CALLBACK_URL);
-    if (!CALLBACK_URL) {
-      alert("Server URL is not configured.");
-      return;
-    }
+    // Try to open the mailto link
+    const emailWindow = window.open(mailtoLink, "_blank");
 
-    try {
-      const response = await fetch(`${CALLBACK_URL}/send-email`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, message }),
-      });
-
-      if (!response.ok) {
-        const data = await response.json();
-        throw new Error(data.error || "Failed to send email.");
-      }
-
-      alert("Email sent successfully!");
-      form.reset();
-    } catch (error) {
-      console.error("Error sending email:", error);
-      alert("Failed to send email. Please try again later.");
+    // Check if the window was blocked
+    if (
+      !emailWindow ||
+      emailWindow.closed ||
+      typeof emailWindow.closed === "undefined"
+    ) {
+      alert(
+        "Your browser blocked the email client. Please manually send an email to adrahul2014@gmail.com."
+      );
     }
   };
-
   const skillsData: Record<SkillCategory, SkillData> = {
     frontend: {
       title: "Frontend Development",
@@ -210,7 +180,7 @@ function App() {
               <Linkedin size={24} />
             </a>
             <a
-              href="mailto:rahuladhikari2034@gmail.com"
+              href="mailto:st.rahul07@gmail.com"
               className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors"
               aria-label="Email"
             >
