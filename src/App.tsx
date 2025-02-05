@@ -269,7 +269,7 @@ function App() {
             <h2 className="text-4xl font-bold mb-4">Experience</h2>
             <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-teal-600 mx-auto"></div>
           </div>
-          <div className="space-y-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="space-y-8 grid grid-cols-1 md:grid-cols-1 gap-8">
             {experiences.map((exp, index) => (
               <div
                 key={index}
