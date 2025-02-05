@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
 const path = require("path");
+const logger = require("./utils/logger");
 
 require("dotenv").config();
 const app = express();
@@ -34,9 +35,11 @@ const transporter = nodemailer.createTransport({
   },
 });
 app.post("/send-email", async (req, res) => {
+  logger.info("api get called");
   const { email, message } = req.body;
-
+  logger.info(email + " " + message);
   if (!email || !message) {
+    logger.error("Email and message are required");
     return res.status(400).json({ error: "Email and message are required" });
   }
 
@@ -47,10 +50,11 @@ app.post("/send-email", async (req, res) => {
       subject: "Portfolio Contact",
       text: `Email: ${email}\nMessage: ${message}`,
     });
-
+    logger.info("Email sent successfully");
     res.status(200).json({ message: "Email sent successfully!" });
   } catch (error) {
     console.error(error);
+    logger.error(`Failed to send email${error}`);
     res.status(500).json({ error: "Failed to send email" });
   }
 });
@@ -65,6 +69,7 @@ app.get("/", (req, res) => {
 // Error handling for any unexpected errors
 app.use((err, req, res, next) => {
   console.log(err.stack);
+  logger.error(err.stack);
   res.status(500).send("Something went wrong!");
   next();
 });
