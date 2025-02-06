@@ -99,6 +99,7 @@ function App() {
   //     );
   //   }
   // };
+  console.log("Rahul adhikari",import.meta.env.VITE_CALLBACK_URL);
   const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
@@ -114,7 +115,6 @@ function App() {
     try {
       const response = await fetch(
         `${import.meta.env.VITE_CALLBACK_URL}/send-email`,
-        // "http://localhost:5000/send-email",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

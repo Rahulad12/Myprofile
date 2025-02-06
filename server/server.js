@@ -9,41 +9,13 @@ const app = express();
 
 const allowedOrigins = [
   "https://adhikarirahul.com.np",
+  "https://www.adhikarirahul.com.np",
   "http://localhost:5173",
 ];
 
-// Allow preflight requests for all routes
-app.use((req, res, next) => {
-  res.header(
-    "Access-Control-Allow-Origin",
-    allowedOrigins.includes(req.headers.origin) ? req.headers.origin : ""
-  );
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.header("Access-Control-Allow-Credentials", "true");
-
-  if (req.method === "OPTIONS") {
-    return res.status(200).end();
-  }
-
-  next();
-});
-
+// Middleware
+app.use(cors({ origin: allowedOrigins, methods: "GET,POST,PUT,DELETE" }));
 app.use(express.json());
-
-// CORS Middleware (after preflight handler)
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true,
-  })
-);
 
 // Check if .env variables are available
 if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
