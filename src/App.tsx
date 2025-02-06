@@ -56,50 +56,6 @@ function App() {
       [skill]: !prev[skill],
     }));
   };
-
-  // const handleContactSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   const form = e.currentTarget;
-  //   const email = (
-  //     form.elements.namedItem("email") as HTMLInputElement
-  //   ).value.trim();
-  //   const message = (
-  //     form.elements.namedItem("message") as HTMLTextAreaElement
-  //   ).value.trim();
-
-  //   // Validate email format using regex
-  //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  //   if (!email || !message) {
-  //     alert("Please enter both email and message.");
-  //     return;
-  //   }
-  //   if (!emailRegex.test(email)) {
-  //     alert("Please enter a valid email address.");
-  //     return;
-  //   }
-
-  //   // Create the mailto link
-  //   const subject = "Portfolio Contact Form Submission";
-  //   const body = `Email: ${email}\nMessage: ${message}`;
-  //   const mailtoLink = `mailto:st.rahul07@gmail.com?subject=${encodeURIComponent(
-  //     subject
-  //   )}&body=${encodeURIComponent(body)}`;
-
-  //   // Try to open the mailto link
-  //   const emailWindow = window.open(mailtoLink, "_blank");
-
-  //   // Check if the window was blocked
-  //   if (
-  //     !emailWindow ||
-  //     emailWindow.closed ||
-  //     typeof emailWindow.closed === "undefined"
-  //   ) {
-  //     alert(
-  //       "Your browser blocked the email client. Please manually send an email to adrahul2014@gmail.com."
-  //     );
-  //   }
-  // };
-  console.log("Rahul adhikari",import.meta.env.VITE_CALLBACK_URL);
   const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
