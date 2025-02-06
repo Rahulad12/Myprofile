@@ -3,9 +3,17 @@ const cors = require("cors");
 const nodemailer = require("nodemailer");
 const path = require("path");
 const logger = require("./utils/logger");
+const { validator } = require("./utils/validator");
+const rateLimit = require("express-rate-limit");
 
 require("dotenv").config();
 const app = express();
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 5, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
+  message: "Too many requests from this IP, please try again later.",
+});
+app.use(limiter);
 
 const allowedOrigins = [
   "https://adhikarirahul.com.np",
@@ -31,7 +39,8 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-app.post("/send-email", async (req, res) => {
+// API Route with Correct Middleware Usage
+app.post("/send-email", validator, async (req, res) => {
   logger.info("API hit: /send-email");
   const { email, message } = req.body;
 

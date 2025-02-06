@@ -16,6 +16,7 @@ import {
   Target,
   Book,
 } from "lucide-react";
+import { set } from "mongoose";
 
 // Define types for the data structures
 type SkillCategory = "frontend" | "backend" | "tools";
@@ -49,7 +50,7 @@ function App() {
     frontend: false,
     tools: false,
   });
-
+  const [loading, setLoading] = useState(false);
   const toggleSkill = (skill: SkillCategory) => {
     setOpenSkills((prev) => ({
       ...prev,
@@ -69,6 +70,7 @@ function App() {
     }
 
     try {
+      setLoading(true);
       const response = await fetch(
         `${import.meta.env.VITE_CALLBACK_URL}/send-email`,
         {
@@ -83,12 +85,15 @@ function App() {
       if (response.ok) {
         alert("Email sent successfully!");
         form.reset();
+        setLoading(false);
       } else {
         alert(`Error: ${data.error}`);
+        setLoading(false);
       }
     } catch (error) {
       console.error("Error sending email:", error);
       alert("Failed to send email.");
+      setLoading(false);
     }
   };
 
@@ -451,6 +456,7 @@ function App() {
             <button
               type="submit"
               className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 px-4 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 font-medium"
+              disabled={loading}
             >
               Send Message
             </button>
@@ -488,7 +494,7 @@ function App() {
             </a>
           </div>
           <p className="text-gray-400">
-            © 2024 Rahul Adhikari. All rights reserved.
+            © 2025 Rahul Adhikari. All rights reserved.
           </p>
         </div>
       </footer>
