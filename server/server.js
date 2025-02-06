@@ -79,7 +79,7 @@ app.post("/send-email", async (req, res) => {
     res.status(200).json({ message: "Email sent successfully!" });
   } catch (error) {
     logger.error(`Failed to send email: ${error.message}`);
-    res.status(500).json({ error: "Failed to send email" });
+    res.status(500).json({ error: `Failed to send email${error}` });
   }
 });
 
