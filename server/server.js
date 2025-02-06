@@ -4,16 +4,9 @@ const nodemailer = require("nodemailer");
 const path = require("path");
 const logger = require("./utils/logger");
 const { validator } = require("./utils/validator");
-const rateLimit = require("express-rate-limit");
 
 require("dotenv").config();
 const app = express();
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 5, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
-  message: "Too many requests from this IP, please try again later.",
-});
-app.use(limiter);
 
 const allowedOrigins = [
   "https://adhikarirahul.com.np",
