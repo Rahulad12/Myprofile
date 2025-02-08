@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   Github,
   Linkedin,
@@ -16,7 +18,7 @@ import {
   Target,
   Book,
 } from "lucide-react";
-import { set } from "mongoose";
+import emailjs from "@emailjs/browser";
 
 // Define types for the data structures
 type SkillCategory = "frontend" | "backend" | "tools";
@@ -57,44 +59,38 @@ function App() {
       [skill]: !prev[skill],
     }));
   };
-  const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+
+  const [contact, setContact] = useState({
+    email: "",
+    message: "",
+  });
+
+  const handelChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setContact({ ...contact, [e.target.name]: e.target.value });
+  };
+  const handleContactSubmit = async (e: React.FormEvent) => {
+    setLoading(true);
     e.preventDefault();
-    const form = e.currentTarget;
-    const email = (form.elements.namedItem("email") as HTMLInputElement).value;
-    const message = (form.elements.namedItem("message") as HTMLTextAreaElement)
-      .value;
-
-    if (!email || !message) {
-      alert("Please enter both email and message.");
-      return;
-    }
-
-    try {
-      setLoading(true);
-      const response = await fetch(
-        `${import.meta.env.VITE_CALLBACK_URL}/send-email`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email, message }),
-        }
-      );
-
-      const data = await response.json();
-
-      if (response.ok) {
-        alert("Email sent successfully!");
-        form.reset();
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        contact,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      .then((response) => {
+        console.log("Success!", response.status, response.text);
+        toast.success("Email sent successfully!");
+        setContact({ email: "", message: "" });
         setLoading(false);
-      } else {
-        alert(`Error: ${data.error}`);
+      })
+      .catch((error) => {
+        console.error("Error sending email:", error);
+        toast.error("Failed to send email.");
         setLoading(false);
-      }
-    } catch (error) {
-      console.error("Error sending email:", error);
-      alert("Failed to send email.");
-      setLoading(false);
-    }
+      });
   };
 
   // Add this type definition for experience data
@@ -258,6 +254,23 @@ function App() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+      {/* Resume Download Section */}
+      <section className="py-20 px-4 bg-white" id="resume">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl font-bold mb-4">Download My Resume</h2>
+          <p className="text-gray-600 mb-6">
+            Interested in my work? Download my resume to learn more about my
+            skills and experience.
+          </p>
+          <a
+            href="/src/public/resume.pdf" // Change this to your actual resume link
+            download="Rahul_Adhikari_Resume.pdf"
+            className="px-6 py-3 bg-blue-600 text-white rounded-lg text-lg font-medium hover:bg-blue-700 transition"
+          >
+            Download Resume
+          </a>
         </div>
       </section>
       {/* experience section */}
@@ -434,6 +447,8 @@ function App() {
                 type="email"
                 id="email"
                 name="email"
+                value={contact.email}
+                onChange={handelChange}
                 required
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
@@ -448,6 +463,8 @@ function App() {
               <textarea
                 id="message"
                 name="message"
+                value={contact.message}
+                onChange={handelChange}
                 rows={4}
                 required
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -458,7 +475,7 @@ function App() {
               className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 px-4 rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 font-medium"
               disabled={loading}
             >
-              Send Message
+              {loading ? "Sending..." : "Send Message"}
             </button>
           </form>
         </div>
@@ -498,6 +515,7 @@ function App() {
           </p>
         </div>
       </footer>
+      <ToastContainer />
     </div>
   );
 }
