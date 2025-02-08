@@ -265,7 +265,7 @@ function App() {
             skills and experience.
           </p>
           <a
-            href="/src/public/resume.pdf" // Change this to your actual resume link
+            href="/resume.pdf" // Change this to your actual resume link
             download="Rahul_Adhikari_Resume.pdf"
             className="px-6 py-3 bg-blue-600 text-white rounded-lg text-lg font-medium hover:bg-blue-700 transition"
           >
