@@ -218,8 +218,7 @@ function App() {
               {
                 icon: <User size={24} className="shrink-0" />,
                 title: "Who I Am",
-                description:
-                  "A passionate software developer with over 5 years of experience in building scalable web applications and solving complex problems. I specialize in full-stack development, with a strong focus on creating elegant and efficient solutions that make a real impact.",
+                description:"A passionate full-stack developer with 1 year of experience in React.js and Node.js and 6 months of hands-on experience as a Node.js intern. I specialize in building scalable, high-performance web applications, integrating third-party APIs, and implementing secure payment systems."
               },
               {
                 icon: <Heart size={24} className="shrink-0" />,
