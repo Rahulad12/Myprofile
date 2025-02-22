@@ -98,11 +98,11 @@ function App() {
   // Add this array of experience data
   const experiences: Experience[] = [
     {
-      role: "Backend Developer Intern",
+      role: "Backend Developer",
       company: "Wisdom Technologies",
       duration: "Oct 2024 - Jan 2025",
       description:
-        "Developed and maintained RESTful APIs for a hotel accommodation system. Integrated third-party APIs like Twilio and Google OAuth. Collaborated with the frontend team to ensure seamless integration.",
+        "Developed and maintained RESTful APIs for a hotel accommodation system. Integrated third-party APIs like Twilio and Google OAuth and also successfully integrate Khalti payment gateway. Collaborated with the frontend team to ensure seamless integration.",
       skills: ["Node.js", "Express.js", "MongoDB", "REST APIs", "Twilio"],
     },
   ];
