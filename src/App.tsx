@@ -218,7 +218,8 @@ function App() {
               {
                 icon: <User size={24} className="shrink-0" />,
                 title: "Who I Am",
-                description:"A passionate full-stack developer with 1 year of experience in React.js and Node.js and 6 months of hands-on experience as a Node.js Developer. I specialize in building scalable, high-performance web applications, integrating third-party APIs, and implementing secure payment systems."
+                description:
+                  "A passionate full-stack developer with 1 year of experience in React.js and Node.js and 6 months of hands-on experience as a Node.js Developer. I specialize in building scalable, high-performance web applications, integrating third-party APIs, and implementing secure payment systems.",
               },
               {
                 icon: <Heart size={24} className="shrink-0" />,
@@ -510,7 +511,7 @@ function App() {
             </a>
           </div>
           <p className="text-gray-400">
-            © 2025 Rahul Adhikari. All rights reserved.
+            © {new Date().getFullYear()} Rahul Adhikari. All rights reserved.
           </p>
         </div>
       </footer>
