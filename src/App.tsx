@@ -194,7 +194,7 @@ function App() {
               <Linkedin size={24} />
             </a>
             <a
-              href="mailto:st.rahul07@gmail.com"
+              href="mailto:adrahul2014@gmail.com"
               className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors"
               aria-label="Email"
             >
@@ -502,7 +502,7 @@ function App() {
               <Linkedin size={20} />
             </a>
             <a
-              href="mailto:st.rahul07@gmail.com"
+              href="mailto:adrahul2014@gmail.com"
               className="p-3 bg-white/10 rounded-full hover:bg-white/20 transition-colors"
               aria-label="Email"
             >
