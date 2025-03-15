@@ -152,6 +152,25 @@ function App() {
       githubUrl: "https://github.com/UTSAB-NI/BizNepal",
     },
     {
+      title: "Currency Converter",
+      description:
+        "Using valina js and for apis using Exchange Rate API I have built a currency converter, where you can convert currency from one to another. This project is a simple project to convert currency using raw javascript.",
+      image: "/public/image/mudralok.png",
+      technologies: ["Javascript", "HTML", "CSS", "Exchange Rate API"],
+      liveUrl: "https://mudralok.vercel.app/",
+      githubUrl: "https://github.com/Rahulad12/currencyConvertor",
+    },
+    {
+      title: "Password Generator",
+      description:
+        "Using valina js I have built a password generator, where you can generate password of your choice. This project is a simple project to generate password using raw javascript. You can generate a password as your need by checking the checkboxes.",
+      image: "/public/image/password.png",
+      technologies: ["Javascript", "HTML", "CSS"],
+      liveUrl: "https://passwordgenerator-tan-ten.vercel.app/",
+      githubUrl:
+        "https://github.com/Rahulad12/amnilInternshipAssignment/tree/main/project/passwordGenerator",
+    },
+    {
       title: "School Website",
       description:
         "Using reacts as frontend and node as backend and Mongo Db as database. I had built a website, that will suitable for small school. This website has basic function that every school Needed. Admin Feature are also available to operate this website.",
