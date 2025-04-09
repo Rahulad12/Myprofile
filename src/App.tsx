@@ -8,11 +8,7 @@ import {
   ChevronDown,
   Plus,
   Minus,
-  Code,
   Globe,
-  Users,
-  Rocket,
-  Lightbulb,
   User,
   Heart,
   Target,
@@ -131,6 +127,17 @@ function App() {
   };
 
   const projects: Project[] = [
+    {
+      title: "mero budget",
+      description:
+        "I developed a finance support platform that helps users effortlessly track their income and expenses, providing smart insights through a clean, productive dashboard. Forget the hassle of managing your finances on pen and paper or scribbling notes—just click the link and start monitoring your monthly income vs. expenses in real time.",
+      image:
+        "/image/budget.png",
+      technologies: ["React", "Node.js", "MongoDB", "Express js", "Tailwind CSS", "Redux"],
+      liveUrl: "https://merobudget.vercel.app",
+      githubUrl: "#",
+
+    },
     {
       title: "Accomodation",
       description:
