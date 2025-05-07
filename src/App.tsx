@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ProjectCard from "./components/ProjectCard";
 import {
   Github,
   Linkedin,
@@ -8,13 +9,13 @@ import {
   ChevronDown,
   Plus,
   Minus,
-  Globe,
   User,
   Heart,
   Target,
   Book,
 } from "lucide-react";
 import emailjs from "@emailjs/browser";
+import {  Space } from "antd";
 
 // Define types for the data structures
 type SkillCategory = "frontend" | "backend" | "tools";
@@ -117,7 +118,7 @@ function App() {
     frontend: {
       title: "Frontend Development",
       description: "Building responsive and interactive user interfaces",
-      skills: ["React", "TypeScript", "Tailwind CSS", "Redux"],
+      skills: ["React", "TypeScript", "Tailwind CSS", "Redux","RTK Query","Ant Design"],
     },
     tools: {
       title: "Tools & Technologies",
@@ -127,6 +128,14 @@ function App() {
   };
 
   const projects: Project[] = [
+    {
+      title: "HRFolio",
+      description: "The Recruitment System is a web-based application designed to streamline and structure the hiring process by enabling recruiters and administrators to efficiently manage candidate progression through predefined hiring stages. The system enforces a strict sequential workflow from application submission to final selection. ensuring that candidates complete each required stage (assessment, interview) in order before moving forward.",
+      image: "/image/hrfoolio.png",
+      technologies: ["React", "Node.js", "MongoDB", "Express js", "Tailwind CSS", "Redux", "RTK Query", "Ant Design"],
+      liveUrl: "https://hrfoolio.vercel.app",
+      githubUrl: "https://github.com/Rahulad12/HRFolio",
+    },
     {
       title: "mero budget",
       description:
@@ -157,25 +166,6 @@ function App() {
       technologies: ["React Js", "PostgresSQL", ".NET"],
       liveUrl: "#",
       githubUrl: "https://github.com/UTSAB-NI/BizNepal",
-    },
-    {
-      title: "Currency Converter",
-      description:
-        "Using valina js and for apis using Exchange Rate API I have built a currency converter, where you can convert currency from one to another. This project is a simple project to convert currency using raw javascript.",
-      image: "/image/mudralok.png",
-      technologies: ["Javascript", "HTML", "CSS", "Exchange Rate API"],
-      liveUrl: "https://mudralok.vercel.app/",
-      githubUrl: "https://github.com/Rahulad12/currencyConvertor",
-    },
-    {
-      title: "Password Generator",
-      description:
-        "Using valina js I have built a password generator, where you can generate password of your choice. This project is a simple project to generate password using raw javascript. You can generate a password as your need by checking the checkboxes.",
-      image: "/image/password.png",
-      technologies: ["Javascript", "HTML", "CSS"],
-      liveUrl: "https://passwordgenerator-tan-ten.vercel.app/",
-      githubUrl:
-        "https://github.com/Rahulad12/amnilInternshipAssignment/tree/main/project/passwordGenerator",
     },
     {
       title: "School Website",
@@ -393,66 +383,18 @@ function App() {
       </section>
       {/* Projects Section */}
       <section className="py-20 px-4 bg-white" id="projects">
-        <div className="max-w-6xl mx-auto">
+        <div className=" w-[90%] mx-auto">
           <h2 className="text-4xl font-bold mb-4 text-center">
             Featured Projects
           </h2>
           <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
             Showcasing some of my recent work and technical achievements
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl shadow-md overflow-hidden group hover:shadow-xl transition-shadow"
-              >
-                <div className="relative">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="absolute bottom-4 left-4 flex gap-4">
-                      <a
-                        href={project.githubUrl}
-                        className="p-2 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors"
-                        aria-label="GitHub"
-                      >
-                        <Github size={20} className="text-white" />
-                      </a>
-                      <a
-                        href={project.liveUrl}
-                        className="p-2 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors"
-                        aria-label="Live Demo"
-                      >
-                        <Globe size={20} className="text-white" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2 text-gray-800">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-600 mb-4 text-sm">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className="px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-medium"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <Space wrap style={{ marginTop: 8 }} size="large">
+            <ProjectCard projects={projects} />
+          </Space>
         </div>
+
       </section>
       {/* Contact Section */}
       <section className="py-20 px-4 bg-gray-50" id="contact">
@@ -542,6 +484,7 @@ function App() {
         </div>
       </footer>
       <ToastContainer />
+
     </div>
   );
 }
