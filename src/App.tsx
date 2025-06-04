@@ -15,7 +15,7 @@ import {
   Book,
 } from "lucide-react";
 import emailjs from "@emailjs/browser";
-import {  Space } from "antd";
+import { Space } from "antd";
 
 // Define types for the data structures
 type SkillCategory = "frontend" | "backend" | "tools";
@@ -95,6 +95,24 @@ function App() {
   // Add this array of experience data
   const experiences: Experience[] = [
     {
+      role: "Associate Software Engineer",
+      company: "Amnil Technologies .Pvt .Ltd",
+      duration: "June 2025 - Present",
+      description: "",
+      skills: [
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "REST APIs",
+        "React.js",
+        "Redux",
+        "RTK Query",
+        "React Query",
+        "Ant Design",
+        "Material UI",
+      ],
+    },
+    {
       role: "Backend Developer",
       company: "Wisdom Technologies",
       duration: "Oct 2024 - Jan 2025",
@@ -102,6 +120,7 @@ function App() {
         "Developed and maintained RESTful APIs for a hotel accommodation system. Integrated third-party APIs like Twilio and Google OAuth and also successfully integrate Khalti payment gateway. Collaborated with the frontend team to ensure seamless integration.",
       skills: ["Node.js", "Express.js", "MongoDB", "REST APIs", "Twilio"],
     },
+
   ];
   const skillsData: Record<SkillCategory, SkillData> = {
     backend: {
@@ -118,7 +137,7 @@ function App() {
     frontend: {
       title: "Frontend Development",
       description: "Building responsive and interactive user interfaces",
-      skills: ["React", "TypeScript", "Tailwind CSS", "Redux","RTK Query","Ant Design"],
+      skills: ["React", "TypeScript", "Tailwind CSS", "Redux", "RTK Query", "Ant Design"],
     },
     tools: {
       title: "Tools & Technologies",
