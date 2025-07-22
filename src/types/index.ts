@@ -3,6 +3,6 @@ export type Project = {
     description: string;
     image: string;
     technologies: string[];
-    liveUrl: string;
-    githubUrl: string;
+    liveUrl?: string;
+    githubUrl?: string;
 };

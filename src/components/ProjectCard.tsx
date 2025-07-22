@@ -16,7 +16,7 @@ const ProjectCard: React.FC<ProjectProps> = ({ projects }) => {
                 <Col md={8} xs={24} lg={8} key={project.title}>
                     <Card
                         hoverable
-                        className="fit-content rounded-2xl"
+                        className="fit-content rounded-2xl h-full"
                         cover={
                             <Image
                                 src={project.image}
@@ -44,18 +44,23 @@ const ProjectCard: React.FC<ProjectProps> = ({ projects }) => {
                                 ))}
                             </Space>
                         </div>
-                        <div className="flex items-center gap-3 mt-4 p-2">
-                            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                                <Tooltip title="Live">
-                                    <Globe />
-                                </Tooltip>
-                            </a>
-                            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                                <Tooltip title="GitHub">
-                                    <Github />
-                                </Tooltip>
-                            </a>
-                        </div>
+                        {
+                            project.liveUrl && project.githubUrl && (
+                                <div className="flex items-center gap-3 mt-4 p-2">
+                                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                                        <Tooltip title="Live">
+                                            <Globe />
+                                        </Tooltip>
+                                    </a>
+                                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                                        <Tooltip title="GitHub">
+                                            <Github />
+                                        </Tooltip>
+                                    </a>
+                                </div>
+                            )
+                        }
+
                     </Card>
                 </Col>
             ))}

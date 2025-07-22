@@ -10,12 +10,11 @@ import {
   Plus,
   Minus,
   User,
-  Heart,
   Target,
-  Book,
 } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import { Space } from "antd";
+import type { Project } from "./types";
 
 // Define types for the data structures
 type SkillCategory = "frontend" | "backend" | "tools";
@@ -31,15 +30,6 @@ type SkillData = {
   title: string;
   description: string;
   skills: string[];
-};
-
-type Project = {
-  title: string;
-  description: string;
-  image: string;
-  technologies: string[];
-  liveUrl: string;
-  githubUrl: string;
 };
 
 // Main App Component
@@ -90,7 +80,6 @@ function App() {
       });
   };
 
-  // Add this type definition for experience data
 
   // Add this array of experience data
   const experiences: Experience[] = [
@@ -98,7 +87,7 @@ function App() {
       role: "Associate Software Engineer",
       company: "Amnil Technologies .Pvt .Ltd",
       duration: "June 2025 - Present",
-      description: "",
+      description: "As a Software Engineer, I develop and maintain web applications using React and Node.js. I collaborate with cross-functional teams to deliver high-quality products.",
       skills: [
         "Node.js",
         "Express.js",
@@ -131,13 +120,14 @@ function App() {
         "PostgreSQL",
         "REST APIs",
         "MongoDB",
-        "Third Parties APIs",
+        "Third Parties APIs integration",
+        "Graph QL",
       ],
     },
     frontend: {
       title: "Frontend Development",
       description: "Building responsive and interactive user interfaces",
-      skills: ["React", "TypeScript", "Tailwind CSS", "Redux", "RTK Query", "Ant Design"],
+      skills: ["React", "TypeScript", "Tailwind CSS", "Redux", "RTK Query", "Ant Design", "Material UI", "Tanstack Query"],
     },
     tools: {
       title: "Tools & Technologies",
@@ -163,18 +153,16 @@ function App() {
         "/image/budget.png",
       technologies: ["React", "Node.js", "MongoDB", "Express js", "Tailwind CSS", "Redux"],
       liveUrl: "https://merobudget.vercel.app",
-      githubUrl: "#",
+      githubUrl: "https://github.com/Rahulad12/BudgetFrontend",
 
     },
     {
       title: "Accomodation",
       description:
-        "As a backend intern, I developed the backend for a hotel accommodation system using Node.js. During this experience, I learned how to handle errors, create models, build APIs, integrate third parties API such as Twilio, google OAUTH and write clean, well-structured code while following SRS guidelines.",
+        "As a backend developer in Wisdom Technologies, I developed the backend for a hotel accommodation system using Node.js. During this experience, I learned how to handle errors, create models, build APIs, integrate third parties API such as Twilio, google OAUTH and write clean, well-structured code while following SRS guidelines.",
       image:
         "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=800&q=80",
       technologies: ["React", "Node.js", "MongoDB", "Express js"],
-      liveUrl: "#",
-      githubUrl: "#",
     },
     {
       title: "BiZNepal",
@@ -183,7 +171,6 @@ function App() {
       image:
         "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80",
       technologies: ["React Js", "PostgresSQL", ".NET"],
-      liveUrl: "#",
       githubUrl: "https://github.com/UTSAB-NI/BizNepal",
     },
     {
@@ -193,7 +180,6 @@ function App() {
       image:
         "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80",
       technologies: ["MERN Stack"],
-      liveUrl: "#",
       githubUrl: "https://github.com/Rahulad12/demoschoolwebsite",
     },
   ];
@@ -242,55 +228,59 @@ function App() {
         </div>
       </section>
       {/* About Me Section */}
-      <section className="py-20 px-4 bg-white" id="about">
-        <div className="max-w-4xl mx-auto">
+      <section className="py-20 px-4 bg-white h-fit" id="about">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">About Me</h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-teal-600 mx-auto"></div>
+            <h2 className="text-5xl font-bold mb-4 text-blue-600">About Me</h2>
+            <div className="w-32 h-1 bg-gradient-to-r from-blue-600 to-teal-600 mx-auto"></div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+          <div className="grid md:grid-cols-2 gap-12">
             {[
               {
-                icon: <User size={24} className="shrink-0" />,
+                icon: <User size={24} className="shrink-0 text-blue-600" />,
                 title: "Who I Am",
                 description:
-                  "A passionate full-stack developer with 1 year of experience in React.js and Node.js and 6 months of hands-on experience as a Node.js Developer. I specialize in building scalable, high-performance web applications, integrating third-party APIs, and implementing secure payment systems.",
+                  "A dedicated full-stack developer with a strong foundation in JavaScript, including expertise in both React.js and Node.js. I focus on creating scalable, high-performance web applications, building intuitive user interfaces, and integrating third-party APIs to deliver seamless, dynamic experiences. I place a strong emphasis on optimizing performance by writing efficient code, reducing load times, and ensuring smooth interactions across all devices.",
               },
               {
-                icon: <Heart size={24} className="shrink-0" />,
-                title: "What I Love",
-                description:
-                  "I'm deeply passionate about creating intuitive user experiences and robust backend systems. My enthusiasm lies in tackling challenging problems and finding innovative solutions that push the boundaries of what's possible in web development.",
-              },
-              {
-                icon: <Target size={24} className="shrink-0" />,
-                title: "My Approach",
-                description:
-                  "I believe in writing clean, maintainable code and following best practices. My approach combines technical expertise with creative problem-solving, ensuring that every project I work on is built with scalability and performance in mind.",
-              },
-              {
-                icon: <Book size={24} className="shrink-0" />,
-                title: "Continuous Learning",
-                description:
-                  "The tech world never stands still, and neither do I. I'm committed to continuous learning and staying up-to-date with the latest technologies and best practices. I believe in sharing knowledge and contributing to the developer community.",
+                icon: <Target size={24} className="shrink-0 text-blue-600" />,
+                title: "What I Offer",
+                description: (
+                  <ul className="list-disc pl-6 text-gray-600 leading-relaxed">
+                    {[
+                      "Full-Stack Web Development",
+                      "SEO-Friendly Websites",
+                      "Responsive & Mobile-Friendly Design",
+                      "Performance Optimization",
+                      "API Integration",
+                      "Continuous Learning & Up-to-Date Solutions",
+                      "Scalable and Maintainable Code",
+                    ].map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
+                  </ul>
+                ),
               },
             ].map((item, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-r from-gray-50 to-white p-8 rounded-2xl shadow-sm border border-gray-100"
+                className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow"
               >
-                <div className="flex items-center gap-3 text-blue-600 mb-4">
-                  {item.icon}
-                  <h3 className="text-xl font-semibold">{item.title}</h3>
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="bg-blue-100 p-3 rounded-full">
+                    {item.icon}
+                  </div>
+                  <h3 className="text-2xl font-semibold text-blue-600">{item.title}</h3>
                 </div>
-                <p className="text-gray-600 leading-relaxed ml-9">
-                  {item.description}
-                </p>
+                <div className="text-gray-600 leading-relaxed">{item.description}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+
       {/* Resume Download Section */}
       <section className="py-20 px-4 bg-white" id="resume">
         <div className="max-w-4xl mx-auto text-center">
@@ -384,7 +374,7 @@ function App() {
                 {openSkills[category] && (
                   <div className="px-6 py-4 bg-white">
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                      {skillsData[category].skills.map((skill) => (
+                      {skillsData[category]?.skills?.map((skill) => (
                         <div
                           key={skill}
                           className="px-4 py-2 bg-gray-50 rounded-lg text-gray-700 font-medium text-sm hover:bg-gray-100 transition-colors"
