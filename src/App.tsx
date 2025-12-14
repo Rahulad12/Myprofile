@@ -1,6 +1,6 @@
-import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+<<<<<<< Updated upstream
 import ProjectCard from "./components/ProjectCard";
 import {
   Github,
@@ -43,20 +43,25 @@ type Project = {
 };
 
 // Main App Component
+=======
+import HeroSection from "./components/HeroSection";
+import AboutSection from "./components/AboutSection";
+import ExperienceSection from "./components/ExperienceSection";
+import SkillsSection from "./components/SkillsSection";
+import ContactSection from "./components/ContactSection";
+import Footer from "./components/Footer";
+
+>>>>>>> Stashed changes
 function App() {
-  const [openSkills, setOpenSkills] = useState<Record<SkillCategory, boolean>>({
-    backend: true,
-    frontend: false,
-    tools: false,
-  });
-  const [loading, setLoading] = useState(false);
-  const toggleSkill = (skill: SkillCategory) => {
-    setOpenSkills((prev) => ({
-      ...prev,
-      [skill]: !prev[skill],
-    }));
+  const showToast = (message: string, type: "success" | "error") => {
+    if (type === "success") {
+      toast.success(message);
+    } else {
+      toast.error(message);
+    }
   };
 
+<<<<<<< Updated upstream
   const [contact, setContact] = useState({
     email: "",
     message: "",
@@ -503,7 +508,47 @@ function App() {
         </div>
       </footer>
       <ToastContainer />
+=======
+  return (
+    <div className="min-h-screen bg-slate-950">
+      <HeroSection />
+      <AboutSection />
+      <ExperienceSection />
+      <SkillsSection />
+      <ContactSection showToast={showToast} />
+      <Footer />
 
+      <ToastContainer
+        position="bottom-right"
+        theme="dark"
+        toastClassName="bg-slate-900 border border-purple-500/20"
+      />
+>>>>>>> Stashed changes
+
+      <style>{`
+        @keyframes blob {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          33% { transform: translate(30px, -50px) scale(1.1); }
+          66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+        .animate-blob {
+          animation: blob 7s infinite;
+        }
+        .animation-delay-2000 {
+          animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+          animation-delay: 4s;
+        }
+        @keyframes gradient {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+        .animate-gradient {
+          background-size: 200% 200%;
+          animation: gradient 3s ease infinite;
+        }
+      `}</style>
     </div>
   );
 }
