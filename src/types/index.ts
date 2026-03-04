@@ -6,3 +6,11 @@ export type Project = {
     liveUrl?: string;
     githubUrl?: string;
 };
+
+export interface ExperienceCardProps {
+  company: string;
+  position: string;
+  period: string;
+  description: string[];
+  technologies: string[];
+}
