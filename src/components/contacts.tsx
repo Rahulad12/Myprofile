@@ -23,7 +23,7 @@ const Contact = () => {
 
             <div className="space-y-4">
               <a
-                href="mailto:contact@example.com"
+                href="mailto:adrahul2014@gmail.com"
                 className="flex items-center gap-4 p-4 bg-background rounded-lg border border-border hover:border-primary transition"
               >
                 <Mail className="w-6 h-6 text-primary flex-shrink-0" />
