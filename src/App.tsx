@@ -3,9 +3,9 @@ import "react-toastify/dist/ReactToastify.css";
 import About from "./components/about";
 import Projects from "./components/project";
 import Skills from "./components/skills";
-import Hero from "./components/Hero";
-import Experience from "./components/Experience";
-import Contact from "./components/Contact";
+import Hero from "./components/hero";
+import Experience from "./components/experience";
+import Contact from "./components/contacts";
 
 function App() {
   return (
