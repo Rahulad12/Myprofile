@@ -6,7 +6,8 @@ const Hero = () => {
       <div className="max-w-4xl w-full text-center space-y-8 ">
         <div className="space-y-4">
           <h1 className="text-5xl md:text-7xl font-bold text-foreground text-balance">
-            Full Stack Developer
+            Rahul Adhikari, <br />
+            <span>Full Stack Developer</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground text-balance">
             Crafting elegant solutions with React, Node.js, and modern web
@@ -27,8 +28,8 @@ const Hero = () => {
             View My Work
             <ArrowRight className="w-4 h-4" />
           </a>
-          <a 
-            href="/resume.pdf" 
+          <a
+            href="/resume.pdf"
             download="Rahul-Adhikari-Resume.pdf"
             className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-6 py-3 rounded-lg font-medium hover:opacity-90 transition"
           >
@@ -54,7 +55,7 @@ const Hero = () => {
             <Github className="w-6 h-6" />
           </a>
           <a
-           href="https://www.linkedin.com/in/rahul-adhikari-7b2a87214/"
+            href="https://www.linkedin.com/in/rahul-adhikari-7b2a87214/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-primary transition"

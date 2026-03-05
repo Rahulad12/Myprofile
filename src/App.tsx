@@ -10,12 +10,15 @@ import Contact from "./components/contacts";
 function App() {
   return (
     <main className="bg-background">
-      <Hero />
-      <About />
-      <Experience />
-      <Projects />
-      <Skills />
-      <Contact />
+      <section>
+        <Hero />
+        <About />
+        <Experience />
+        <Projects />
+        <Skills />
+        <Contact />
+      </section>
+
       <footer className="bg-card border-t border-border py-8 px-6">
         <div className="max-w-4xl mx-auto text-center text-muted-foreground">
           <p>
