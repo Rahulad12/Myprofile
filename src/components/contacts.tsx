@@ -26,7 +26,7 @@ const Contact = () => {
                 href="mailto:adrahul2014@gmail.com"
                 className="flex items-center gap-4 p-4 bg-background rounded-lg border border-border hover:border-primary transition"
               >
-                <Mail className="w-6 h-6 text-primary flex-shrink-0" />
+                <Mail className="w-6 h-6 text-primary shrink-0" />
                 <div>
                   <p className="text-sm text-muted-foreground">Email</p>
                   <p className="text-foreground font-medium">
@@ -36,10 +36,10 @@ const Contact = () => {
               </a>
 
               <a
-                href="tel:+1234567890"
+                href="tel:+9779817977026"
                 className="flex items-center gap-4 p-4 bg-background rounded-lg border border-border hover:border-primary transition"
               >
-                <Phone className="w-6 h-6 text-primary flex-shrink-0" />
+                <Phone className="w-6 h-6 text-primary shrink-0" />
                 <div>
                   <p className="text-sm text-muted-foreground">Phone</p>
                   <p className="text-foreground font-medium">
