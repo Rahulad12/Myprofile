@@ -1,68 +1,85 @@
-'use client';
+"use client";
 
 import SkillBadge from "./skill-badge";
 
-
 const skillCategories = [
   {
-    category: 'Frontend',
+    category: "Key Skills",
     skills: [
-      { name: 'React.js', level: 'expert' as const },
-      { name: 'Next.js', level: 'expert' as const },
-      { name: 'TypeScript', level: 'expert' as const },
-      { name: 'Tailwind CSS', level: 'advanced' as const },
-      { name: 'Redux', level: 'advanced' as const },
-      { name: 'React Query', level: 'advanced' as const },
+      { name: "Stakeholder Collaboration", level: "expert" as const },
+      { name: "Client-Facing Development", level: "expert" as const },
+      { name: "Requirements Analysis", level: "advanced" as const },
+      {
+        name: "Translating Business Logic into System Features",
+        level: "advanced" as const,
+      },
+      { name: "Agile Software Development", level: "advanced" as const },
+      { name: "Training & Mentorship", level: "advanced" as const },
     ],
   },
   {
-    category: 'Backend',
+    category: "Frontend",
     skills: [
-      { name: 'Node.js', level: 'expert' as const },
-      { name: 'Nest.js', level: 'advanced' as const },
-      { name: 'Express.js', level: 'expert' as const },
-      { name: 'REST APIs', level: 'expert' as const },
-      { name: 'Microservices', level: 'advanced' as const },
-      { name: 'Socket.io', level: 'advanced' as const },
+      { name: "React.js", level: "expert" as const },
+      { name: "Next.js", level: "expert" as const },
+      { name: "TypeScript", level: "expert" as const },
+      { name: "Tailwind CSS", level: "advanced" as const },
+      { name: "Redux", level: "advanced" as const },
+      { name: "React Query", level: "advanced" as const },
     ],
   },
   {
-    category: 'Databases',
+    category: "Backend",
     skills: [
-      { name: 'MongoDB', level: 'expert' as const },
-      { name: 'PostgreSQL', level: 'advanced' as const },
-      { name: 'Firebase', level: 'advanced' as const },
-      { name: 'Database Design', level: 'advanced' as const },
+      { name: "Node.js", level: "expert" as const },
+      { name: "Nest.js", level: "advanced" as const },
+      { name: "Express.js", level: "expert" as const },
+      { name: "REST APIs", level: "expert" as const },
+      { name: "Microservices", level: "advanced" as const },
+      { name: "Socket.io", level: "advanced" as const },
     ],
   },
   {
-    category: 'Tools & Platforms',
+    category: "Databases",
     skills: [
-      { name: 'Git', level: 'expert' as const },
-      { name: 'Docker', level: 'advanced' as const },
-      { name: 'Postman', level: 'advanced' as const },
-      { name: 'CI/CD', level: 'advanced' as const },
-      { name: 'NPM/Yarn', level: 'expert' as const },
-      { name: 'Jenkins', level: 'intermediate' as const },
-      { name: 'Render', level: 'intermediate' as const },
-      { name: 'Vercel', level: 'intermediate' as const },
+      { name: "MongoDB", level: "expert" as const },
+      { name: "PostgreSQL", level: "advanced" as const },
+      { name: "Firebase", level: "advanced" as const },
+      { name: "Database Design", level: "advanced" as const },
+    ],
+  },
+  {
+    category: "Tools & Platforms",
+    skills: [
+      { name: "Git", level: "expert" as const },
+      { name: "Docker", level: "advanced" as const },
+      { name: "Postman", level: "advanced" as const },
+      { name: "CI/CD", level: "advanced" as const },
+      { name: "NPM/Yarn", level: "expert" as const },
+      { name: "Jenkins", level: "intermediate" as const },
+      { name: "Render", level: "intermediate" as const },
+      { name: "Vercel", level: "intermediate" as const },
     ],
   },
 ];
 
-const Skills =() => {
+const Skills = () => {
   return (
     <section id="skills" className="py-20 bg-background px-6">
       <div className="max-w-4xl mx-auto space-y-12">
         <div className="space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground">Technical Skills</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+            Technical Skills
+          </h2>
           <div className="h-1 w-20 bg-primary rounded" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {skillCategories.map((category) => (
             <div key={category.category} className="space-y-4">
-              <h3 className="text-2xl font-bold text-primary">{category.category}</h3>
+              <h3 className="text-2xl font-bold text-primary">
+                {category.category}
+              </h3>
               <div className="flex flex-wrap gap-3">
                 {category.skills.map((skill) => (
                   <SkillBadge
@@ -78,6 +95,6 @@ const Skills =() => {
       </div>
     </section>
   );
-}
+};
 
-export default Skills
+export default Skills;
