@@ -11,18 +11,38 @@ const About = () => {
 
         <div className="space-y-6 text-foreground">
           <p className="text-lg leading-relaxed text-muted-foreground">
-            Software Engineer with 1+ year of experience in full-stack MERN
-            development and enterprise banking applications. Experienced in
-            building secure, scalable React.js frontends and Node.js/Express
-            backends, integrating REST APIs, authentication mechanisms, and
-            security controls. Hands-on experience with regulated banking
-            systems, biometric integration, and secure data handling.
+            I am Rahul Adhikari, a passionate Software Engineer with practical
+            experience in full-stack web development, I hold a Bachelor’s degree
+            in Computer Science (B.Sc CSIT) from Tribhuvan University,
+            Kathmandu, Nepal. My technical expertise includes modern JavaScript
+            technologies such as React.js, Next.js, Node.js, Express.js, and
+            NestJS, along with experience working with databases such as MongoDB
+            and PostgreSQL.
           </p>
           <p className="text-lg leading-relaxed text-muted-foreground">
-            Beyond coding, I'm committed to continuous learning and staying
-            updated with the latest industry trends. I believe in writing
-            maintainable code, fostering collaboration, and creating solutions
-            that make a real impact.
+            Currently, I work as an Associate Software Engineer where I
+            contribute to the development of multiple banking software systems
+            that support 200+ concurrent users. In my role, I primarily develop
+            frontend applications using React.js. I have also gained valuable
+            experience working directly with clients through WFC (Work From
+            Client) engagements, collaborating with a banking institution to
+            develop and maintain internal systems.
+          </p>
+          <p className="text-lg leading-relaxed text-muted-foreground">
+            In addition to my professional experience, I have developed multiple
+            projects using the MERN stack (MongoDB, Express.js, React.js, and
+            Node.js), building scalable web applications and RESTful APIs.
+            Earlier in my career, I gained hands-on industry experience through
+            internships as a Node.js Developer and React.js Developer during my
+            university studies, where I strengthened my understanding of
+            full-stack development and modern application architecture
+          </p>
+          <p className="text-lg leading-relaxed text-muted-foreground">
+            Beyond development, I am passionate about mentoring and knowledge
+            sharing. I have provided part-time mentorship to secondary-level
+            students and have trained aspiring developers in the MERN stack,
+            guiding them in building full-stack applications and backend
+            projects using Node.js.
           </p>
         </div>
 
@@ -45,9 +65,7 @@ const About = () => {
             <h3 className="text-xl font-semibold text-primary mb-2">
               Databases
             </h3>
-            <p className="text-muted-foreground">
-              MongoDB, PostgreSQL
-            </p>
+            <p className="text-muted-foreground">MongoDB, PostgreSQL</p>
           </div>
         </div>
       </div>
