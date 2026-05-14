@@ -1,24 +1,20 @@
 interface SkillBadgeProps {
   name: string;
-  level?: 'expert' | 'advanced' | 'intermediate';
+  level?: "expert" | "advanced" | "intermediate";
 }
 
-const  SkillBadge =({ name, level = 'advanced' }: SkillBadgeProps) =>{
-  const levelStyles = {
-    expert: 'bg-primary/20 text-primary border-primary/30',
-    advanced: 'bg-accent/20 text-accent border-accent/30',
-    intermediate: 'bg-muted text-muted-foreground border-muted',
-  };
+const levelStyles = {
+  expert: "bg-blue-500/15 text-blue-300 border-blue-500/30 hover:bg-blue-500/25",
+  advanced: "bg-amber-500/10 text-amber-300 border-amber-500/25 hover:bg-amber-500/20",
+  intermediate: "bg-muted/20 text-muted-foreground border-border/60 hover:bg-muted/30",
+};
 
-  return (
-    <span
-      className={`inline-block px-4 py-2 rounded-full border font-medium transition hover:scale-105 ${
-        levelStyles[level]
-      }`}
-    >
-      {name}
-    </span>
-  );
-}
+const SkillBadge = ({ name, level = "advanced" }: SkillBadgeProps) => (
+  <span
+    className={`inline-block px-3 py-1.5 rounded-md border text-xs font-semibold transition-all duration-200 cursor-default tracking-wide ${levelStyles[level]}`}
+  >
+    {name}
+  </span>
+);
 
-export default SkillBadge
+export default SkillBadge;
