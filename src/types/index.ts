@@ -14,3 +14,10 @@ export interface ExperienceCardProps {
   description: string[];
   technologies: string[];
 }
+
+export interface Education {
+  institution: string;
+  degree: string;
+  location: string;
+  period: string;
+}

@@ -2,17 +2,31 @@ import { ExperienceCardProps } from "../types";
 
 export const experiences: ExperienceCardProps[] = [
   {
-    position: "Associate Software Engineer",
-    company: "Amnil Technologies .Pvt .Ltd",
-    period: "June 2025 - Present",
+    position: "QA Engineer (Part-Time)",
+    company: "CrawlerHub",
+    period: "Sep 2025 - Sep 2026",
     description: [
-      "Collaborate with cross-functional teams to develop the Bank Account Opening System and Bank Teller Portal used by 200+ branch employees.",
-      "Build end-to-end solutions with teams for Teller and SSF portals, integrating biometric verification, document scanning, and digital signatures, and perform unit testing to ensure accuracy and reliability.",
-      "Implement and validate response integrity checks to prevent API response manipulation and tampering, performing developer-level testing to guarantee robustness.",
-      "Participate in requirements gathering sessions with clients to translate banking business logic into system features.",
-      "Serve as the sole developer for the Document Management System, delivering 100% of the features on time.",
-      "Optimize document handling, improving document view and upload efficiency by 75% in the CBS system, verify through unit testing.",
-      "Implement OIDC-based SSO, ensuring 100% compliance with enterprise authentication standards and testing it for reliability.",
+      "Created, maintained, and executed detailed test cases based on functional requirements and expected user behaviour.",
+      "Identified, documented, and tracked software defects, providing clear reproduction steps and supporting information for development teams.",
+      "Collaborated with developers to investigate issues, verify fixes, and ensure defects were resolved before release.",
+    ],
+    technologies: [
+      "Manual Testing",
+      "Test Case Design",
+      "Defect Tracking",
+      "Regression Testing",
+      "QA",
+    ],
+  },
+  {
+    position: "Associate Software Developer",
+    company: "Amnil Technologies Pvt. Ltd",
+    period: "Jun 2025 - Aug 2026",
+    description: [
+      "Developed and maintained 4+ scalable full-stack FinTech applications supporting operations across 200+ bank branches, including Bank Teller, Account Opening, Trade Finance, and Document Management systems.",
+      "Independently delivered the Document Management System with 100% of planned features on schedule, improving CBS document viewing and uploading efficiency by 75%.",
+      "Collaborated with FinTech clients and stakeholders across the SDLC, implementing OIDC authentication, API integrity validation, and agentic AI workflows to deliver secure, user-focused banking solutions.",
+      "Worked within an AI-native SDLC, leveraging AI-assisted development practices throughout the software development lifecycle.",
     ],
     technologies: [
       "TypeScript",
@@ -33,8 +47,8 @@ export const experiences: ExperienceCardProps[] = [
     company: "Amnil Technologies Pvt. Ltd",
     period: "Feb 2025 - May 2025",
     description: [
-      " Strengthened core JavaScript fundamentals, including ES6+, event handling, and DOM manipulation, through realworld application development.",
-      "Integrated frontend components with Node.js / REST APIs as part of a MERN-based recruitment management system.",
+      "Built and integrated frontend components using React.js, strengthening core JavaScript fundamentals including ES6+, event handling, and DOM manipulation through real-world application development.",
+      "Integrated frontend components with Node.js and REST APIs.",
     ],
     technologies: [
       "TypeScript",
@@ -47,13 +61,12 @@ export const experiences: ExperienceCardProps[] = [
     ],
   },
   {
-    position: "Backend Developer Intern (Node.js)",
-    company: "Wisdom Technologies",
-    period: "Oct 2024 - Jan 2025",
+    position: "Software Development Intern (Node.js)",
+    company: "Wisdom Technology",
+    period: "Aug 2024 - Feb 2025",
     description: [
-      "Designed and deployed high-performance RESTful APIs with teams using Node.js and Express.js, improving data flow efficiency, performing unit testing, and creating detailed API documentation",
-      "Designed database schema and optimized queries to ensure efficient data storage and retrieval.",
-      "Integrated third-party services Khalti (Payment Gateway)  and implemented OAuth-based authentication, with developer-level testing to ensure reliability and security.",
+      "Designed and developed RESTful APIs using Node.js and Express.js, optimizing database schemas and queries to improve data flow, storage, and retrieval efficiency, with comprehensive unit testing and API documentation.",
+      "Integrated Khalti payment gateway and OAuth-based authentication, conducting developer-level testing to ensure reliable, secure, and seamless third-party service integration.",
     ],
     technologies: [
       "TypeScript",
@@ -68,9 +81,9 @@ export const experiences: ExperienceCardProps[] = [
   {
     position: "Secondary Computer Science Teacher (Part-Time)",
     company: "Deepika School",
-    period: "July 2022 - June 2024",
+    period: "Jul 2022 - Jun 2024",
     description: [
-      "Instructed 40+ secondary-level Computer Science students, developed lesson plans, and mentored students in practical and theoretical concepts",
+      "Instructed 40+ secondary-level Computer Science students, developed lesson plans, and mentored students in practical and theoretical concepts.",
       "Recognized for achieving the highest average GPA in the SEE 2080 (Class 10) final exams.",
     ],
     technologies: ["Communication", "Teaching", "Lesson Planning", "Mentoring"],

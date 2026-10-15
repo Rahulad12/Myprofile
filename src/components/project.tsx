@@ -1,5 +1,6 @@
 import { Project } from "../types";
 import ProjectCard from "./porject-card";
+import SectionHeading from "./section-heading";
 import { useInView } from "../hooks/useInView";
 
 const projects: Project[] = [
@@ -56,24 +57,13 @@ const Projects = () => {
   const { ref, inView } = useInView();
 
   return (
-    <section id="work" className="py-20 bg-card px-6">
-      <div className="max-w-4xl mx-auto space-y-12">
-        <div ref={ref} className={`space-y-3 reveal ${inView ? "in-view" : ""}`}>
-          <h2
-            className="text-4xl md:text-5xl font-bold text-foreground section-heading"
-            style={{ fontFamily: "'Syne', sans-serif" }}
-          >
-            Featured Projects
-          </h2>
-          <p className="text-muted-foreground pl-5">A selection of work I'm proud of</p>
-        </div>
+    <section className="py-20 md:py-24 bg-card px-6 border-b border-border">
+      <div ref={ref} className={`max-w-5xl mx-auto reveal ${inView ? "in-view" : ""}`}>
+        <SectionHeading index="05" title="Featured Projects" subtitle="A selection of work I'm proud of" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, idx) => (
-            <div
-              key={idx}
-              className={`reveal reveal-delay-${Math.min(idx % 4 + 1, 5)} ${inView ? "in-view" : ""}`}
-            >
+            <div key={idx} className={`reveal reveal-delay-${Math.min((idx % 4) + 1, 5)} ${inView ? "in-view" : ""}`}>
               <ProjectCard {...project} />
             </div>
           ))}

@@ -12,10 +12,7 @@ export default function ProjectCard({ title, description, technologies, liveUrl,
   return (
     <div className="glass-card p-6 flex flex-col gap-4 h-full">
       <div>
-        <h3
-          className="text-lg font-bold text-foreground mb-2 leading-snug"
-          style={{ fontFamily: "'Syne', sans-serif" }}
-        >
+        <h3 className="text-lg font-bold text-foreground mb-2 leading-snug" style={{ fontFamily: "'Playfair Display', serif" }}>
           {title}
         </h3>
         <p className="text-sm text-muted-foreground leading-relaxed line-clamp-4">{description}</p>
@@ -25,7 +22,7 @@ export default function ProjectCard({ title, description, technologies, liveUrl,
         {technologies.map((tech) => (
           <span
             key={tech}
-            className="text-xs px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-300 border border-blue-500/20 font-medium"
+            className="text-xs px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground border border-primary/15 font-medium"
           >
             {tech}
           </span>
@@ -33,13 +30,13 @@ export default function ProjectCard({ title, description, technologies, liveUrl,
       </div>
 
       {(liveUrl || githubUrl) && (
-        <div className="flex gap-5 pt-2 border-t border-border/50">
+        <div className="flex gap-5 pt-2 border-t border-border">
           {liveUrl && (
             <a
               href={liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs text-amber-400 hover:text-amber-300 transition font-semibold tracking-wide uppercase"
+              className="inline-flex items-center gap-1.5 text-xs text-primary hover:text-primary/80 transition font-semibold tracking-wide uppercase"
             >
               <ExternalLink className="w-3.5 h-3.5" />
               Live Demo
@@ -50,7 +47,7 @@ export default function ProjectCard({ title, description, technologies, liveUrl,
               href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-blue-400 transition font-semibold tracking-wide uppercase"
+              className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition font-semibold tracking-wide uppercase"
             >
               <Github className="w-3.5 h-3.5" />
               GitHub

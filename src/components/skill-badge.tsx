@@ -4,9 +4,9 @@ interface SkillBadgeProps {
 }
 
 const levelStyles = {
-  expert: "bg-blue-500/15 text-blue-300 border-blue-500/30 hover:bg-blue-500/25",
-  advanced: "bg-amber-500/10 text-amber-300 border-amber-500/25 hover:bg-amber-500/20",
-  intermediate: "bg-muted/20 text-muted-foreground border-border/60 hover:bg-muted/30",
+  expert: "bg-primary text-primary-foreground border-primary hover:bg-primary/90",
+  advanced: "bg-secondary text-secondary-foreground border-primary/20 hover:bg-secondary/70",
+  intermediate: "bg-muted text-muted-foreground border-border hover:bg-muted/70",
 };
 
 const SkillBadge = ({ name, level = "advanced" }: SkillBadgeProps) => (

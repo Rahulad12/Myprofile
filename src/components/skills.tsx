@@ -1,4 +1,5 @@
 import SkillBadge from "./skill-badge";
+import SectionHeading from "./section-heading";
 import { useInView } from "../hooks/useInView";
 
 const skillCategories = [
@@ -56,52 +57,47 @@ const skillCategories = [
       { name: "Vercel", level: "intermediate" as const },
     ],
   },
+  {
+    category: "Concepts & Practices",
+    skills: [
+      { name: "OOP", level: "advanced" as const },
+      { name: "OIDC Authentication", level: "advanced" as const },
+      { name: "API Security", level: "advanced" as const },
+      { name: "Agentic AI Workflows", level: "advanced" as const },
+      { name: "AI-Native SDLC", level: "advanced" as const },
+      { name: "Requirements Analysis", level: "advanced" as const },
+      { name: "Client-Facing Development", level: "expert" as const },
+    ],
+  },
 ];
 
 const Skills = () => {
   const { ref, inView } = useInView();
 
   return (
-    <section id="skills" className="py-20 bg-background px-6">
-      <div className="max-w-4xl mx-auto space-y-12">
-        <div ref={ref} className={`space-y-3 reveal ${inView ? "in-view" : ""}`}>
-          <h2
-            className="text-4xl md:text-5xl font-bold text-foreground section-heading"
-            style={{ fontFamily: "'Syne', sans-serif" }}
-          >
-            Technical Skills
-          </h2>
-          <p className="text-muted-foreground pl-5">Technologies and tools I work with</p>
-        </div>
+    <section className="py-20 md:py-24 bg-background px-6 border-b border-border">
+      <div ref={ref} className={`max-w-5xl mx-auto reveal ${inView ? "in-view" : ""}`}>
+        <SectionHeading index="06" title="Technical Skills" subtitle="Technologies and tools I work with" />
 
-        {/* Legend */}
-        <div className={`flex gap-4 flex-wrap reveal reveal-delay-1 ${inView ? "in-view" : ""}`}>
+        <div className="mt-8 flex gap-4 flex-wrap">
           <div className="flex items-center gap-2 text-xs text-muted-foreground">
-            <span className="w-2.5 h-2.5 rounded-sm bg-primary/15 border border-primary/30" />
+            <span className="w-2.5 h-2.5 rounded-sm bg-primary" />
             Expert
           </div>
           <div className="flex items-center gap-2 text-xs text-muted-foreground">
-            <span className="w-2.5 h-2.5 rounded-sm bg-cyan-500/10 border border-cyan-500/20" />
+            <span className="w-2.5 h-2.5 rounded-sm bg-secondary border border-primary/20" />
             Advanced
           </div>
           <div className="flex items-center gap-2 text-xs text-muted-foreground">
-            <span className="w-2.5 h-2.5 rounded-sm bg-muted/30 border border-border" />
+            <span className="w-2.5 h-2.5 rounded-sm bg-muted border border-border" />
             Intermediate
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-10">
           {skillCategories.map((cat, i) => (
-            <div
-              key={cat.category}
-              className={`space-y-3 reveal reveal-delay-${Math.min(i + 1, 5)} ${inView ? "in-view" : ""}`}
-            >
-              <h3
-                className="text-lg font-bold text-primary"
-                style={{ fontFamily: "'Syne', sans-serif" }}
-              >
-                {cat.category}
-              </h3>
+            <div key={cat.category} className={`space-y-3 reveal reveal-delay-${Math.min(i + 1, 5)} ${inView ? "in-view" : ""}`}>
+              <h3 className="text-sm font-bold text-foreground uppercase tracking-[0.12em]">{cat.category}</h3>
               <div className="flex flex-wrap gap-2">
                 {cat.skills.map((skill) => (
                   <SkillBadge key={skill.name} name={skill.name} level={skill.level} />
